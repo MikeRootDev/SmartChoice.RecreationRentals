@@ -1,0 +1,59 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg" style="background-color: #49BEFE; box-shadow: 0px 0px 5px black;">
+    <div class="container px-4 px-lg-5">
+        <img src="img/sunny.gif" alt="sun and cloud" id="nav_gif" style="height: 80px;"/>
+        <a class="navbar-brand" href="#!" 
+        style="color: #FAE116;font-size: 32px;text-shadow: 2px 2px 2px black;font-family: fantasy;letter-spacing: 2px;">
+            Coquille Rec Rentals
+        </a>
+        <h4 id="phone_number">@PhoneNumber</h4>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item">
+                    <NavLink class="nav-link active" aria-current="page" href="#!">
+                        Home
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="#!">
+                        Shop
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="#!">
+                        Contact Us
+                    </NavLink>
+                </li>
+            </ul>
+            <div class="position-relative" style="margin-right: 20px;">
+                <a href="#" class="mx-2" style="color: white;"><span class="bi-facebook"></span></a>
+                <a href="#" class="mx-2" style="color: white;"><span class="bi-twitter"></span></a>
+                <a href="#" class="mx-2" style="color: white;"><span class="bi-instagram"></span></a>
+                <a href="#" class="mx-2 js-search-open" style="color: white;"><span class="bi-search"></span></a>
+            </div>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private string? PhoneNumber;
+
+    protected override void OnInitialized()
+    {
+        PhoneNumber = Configuration.GetSection("phone_number").Value;
+    }
+}

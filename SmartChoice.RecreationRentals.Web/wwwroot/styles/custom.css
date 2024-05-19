@@ -1,0 +1,23 @@
+﻿#phone_number {
+    color: white;
+    vertical-align: middle;
+    position: relative;
+    top: 4px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+::backdrop {
+    background-color:lightgray;
+    opacity: 0.75;
+}
+
+dialog {
+    margin-top: 200px;
+    height: 500px;
+    width: 500px;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 1px 2px 30px darkgray;
+    background-color: darkorange;
+}
